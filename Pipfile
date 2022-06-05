@@ -13,6 +13,7 @@ pillow = "*"
 config = "*"
 python-decouple = "*"
 django-bootstrap4 = "*"
+psycopg2 = "==2.8.6"
 
 [dev-packages]
 
