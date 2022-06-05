@@ -2,6 +2,19 @@
 {%block content%}
 {{ block.super}}
 <div>
-<h1>Instagram</h1>
+  <h1>Instagram</h1>
+
+  <div class="container">
+    {%for new_post in posts %}
+    <div class="row">
+      <div class="col-md-8">
+        <h3>{{new_post.title}}</h3>
+        <img src="{{new_post.image.url}}" class="img-responsive" alt="image1" width="300px">
+        <p>{{new_post.caption}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  
+  </div>
 </div>
-{%endblock%}
+{%endblock%} 
