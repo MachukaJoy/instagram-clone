@@ -10,6 +10,8 @@ cloudinary = "*"
 python-dotenv = "*"
 whitenoise = "*"
 pillow = "*"
+config = "*"
+python-decouple = "*"
 
 [dev-packages]
 
