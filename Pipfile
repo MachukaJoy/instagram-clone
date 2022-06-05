@@ -12,6 +12,7 @@ whitenoise = "*"
 pillow = "*"
 config = "*"
 python-decouple = "*"
+django-bootstrap4 = "*"
 
 [dev-packages]
 

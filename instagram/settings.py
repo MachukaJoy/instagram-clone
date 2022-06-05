@@ -36,6 +36,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'gram',
+    'bootstrap4',
     'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -138,10 +140,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 cloudinary.config(
-    cloud_name="machukaj",
-    api_key="912469896157192",
-    api_secret="w_m2BGLGV7m9Mz-blCYR5dXyTBM"
-    # cloud_name = os.environ.get("CLOUD_NAME"), 
-    # api_key = os.environ.get("API_KEY"), 
-    # api_secret = os.environ.get("API_SECRET")
+    cloud_name = os.environ.get("CLOUD_NAME"), 
+    api_key = os.environ.get("API_KEY"), 
+    api_secret = os.environ.get("API_SECRET")
 )
