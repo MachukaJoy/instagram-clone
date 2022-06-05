@@ -143,6 +143,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+ACCOUNT_ACTIVATION_DAYS = 7
+
 cloudinary.config(
     cloud_name = os.environ.get("CLOUD_NAME"), 
     api_key = os.environ.get("API_KEY"), 
