@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'gram',
     'bootstrap4',
     'cloudinary',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
