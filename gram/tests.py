@@ -19,4 +19,8 @@ class ProfileTestClass(TestCase):
         self.Machuka.save_profile()
         name = Profile.objects.all()
 
+    def test_delete_method(self):
+        self.Machuka.save_profile()
+        self.Machuka.delete_profile.all()
+
 
