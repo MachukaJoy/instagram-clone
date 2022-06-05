@@ -5,6 +5,11 @@ name = "pypi"
 
 [packages]
 django = "==2.2.8"
+autopep8 = "*"
+cloudinary = "*"
+python-dotenv = "*"
+whitenoise = "*"
+pillow = "*"
 
 [dev-packages]
 
