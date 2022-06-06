@@ -15,6 +15,7 @@ python-decouple = "*"
 django-bootstrap4 = "*"
 psycopg2 = "==2.8.6"
 django-tinymce = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 
