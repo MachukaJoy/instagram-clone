@@ -23,9 +23,8 @@ class Profile(models.Model):
 class  Post(models.Model):
     image = CloudinaryField('images')
     title = models.CharField(max_length=30, default='')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default='', null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default='', null=True ,related_name='author')
     caption = models.TextField(max_length=300)
-    likes = models.IntegerField(User)
 
     @classmethod
     def all_posts(cls) :
@@ -34,3 +33,22 @@ class  Post(models.Model):
 
     def __str__(self):
         return self.title 
+
+    @property
+    def num_likes(self):
+        return self.liked.all.count()
+
+
+
+LIKE_CHOICES =(
+    ('Like','Like'),
+    ('Unlike','Unlike'),
+)
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post,on_delete=models.CASCADE)
+    value = models.CharField(choices=LIKE_CHOICES , default='Likes',max_length=10)
+
+    def __str__(self):
+        return str(self.post)
