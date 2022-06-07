@@ -3,27 +3,33 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
     {%if title%}
-    <title>Instagram-{{title}}</Instagram-></title>
+    <title>Instagram-{{title}}</Instagram->
+    </title>
     {%else%}
-        <title>Instagram</title>
+    <title>Instagram</title>
     {%endif%}
 
     {% block styles %}
-        {% bootstrap_css %}
+    {% bootstrap_css %}
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     {% endblock %}
 
 
 </head>
+
 <body>
+
     <body>
+        {%include 'navbar.html' %}
 
 
         {%block content%}
-        {%include 'navbar.html' %}
 
         {%endblock%}
 
@@ -35,5 +41,6 @@
         {% endblock %}
 
 
-</body>
-</html> 
+    </body>
+
+</html>

@@ -13,7 +13,10 @@ def home(request):
     json_posts = []
     for post in posts:
         pic = Profile.objects.filter(user=post.user.id).first()
-        pic = pic.profile_pic.url
+        if pic:
+            pic = pic.profile_pic.url
+        else:
+            pic =''
         obj = dict(
             image=post.image.url,
             author=post.user.username,
@@ -28,27 +31,49 @@ def home(request):
 
 def profile(request):
     if request.method == 'POST':
+        profile_form = ProfileUpdateForm(
+            request.POST, request.FILES, instance=request.user)
+
+        if  profile_form.is_valid():
+            # user_form.save()
+            profile_form.save()
+
+            return redirect('home')
+
+    else:
+
+        profile_form = ProfileUpdateForm(instance=request.user)
+
+        context = {
+
+            'profile_form': profile_form
+
+        }
+
+        return render(request, 'profile.html', context)
+
+def update_profile(request):
+    if request.method == 'POST':
 
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(
-            request.POST, request.FILES, instance=request.user.profile)
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
 
-        if user_form.is_valid() and profile_form.is_valid():
+        if user_form.is_valid():
             user_form.save()
             profile_form.save()
 
-            return redirect('profile')
+            return redirect('home')
 
     else:
         user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.profile)
+        profile_form = ProfileUpdateForm(instance=request.user)
         context = {
             'user_form': user_form,
             'profile_form': profile_form
 
         }
 
-    return render(request, 'profile.html', context)
+    return render(request,'update_profile.html', context)
 
 @login_required(login_url='/accounts/login/')
 
