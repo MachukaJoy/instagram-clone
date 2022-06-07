@@ -25,6 +25,7 @@ class  Post(models.Model):
     title = models.CharField(max_length=30, default='')
     user = models.ForeignKey(User, on_delete=models.CASCADE, default='', null=True)
     caption = models.TextField(max_length=300)
+    likes = models.IntegerField(User)
 
     @classmethod
     def all_posts(cls) :
