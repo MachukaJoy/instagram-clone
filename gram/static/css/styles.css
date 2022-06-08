@@ -1,3 +1,6 @@
+.body{
+  background-color: #E97451;
+}
 .like,
 .dislike {
   display: inline-block;

@@ -21,8 +21,8 @@
 
     <ul class="navbar-nav">
 
-      <li class="mt-2"><a href="{% url 'home' %}"><i class="fas fa-home"></i></a> </li>
-      <li ><a class="nav-item nav-link ml-4" href="{%url 'new_post'%}"><i class="fas fa-plus"></i>New Post</a></li>
+      <li class="mt-2"><a href="{% url 'home' %}"><i class="fas fa-home" style="color: teal;font-size: 40px;"></i></a> </li>
+      <li><a class="nav-item nav-link ml-4" href="{%url 'new_post'%}" style="color: teal;font-size: 30px;"><i class="fas fa-plus" style="color: teal;font-size: 40px;"></i>New Post</a></li>
       <li class="nav-item active">
         {% if user.is_authenticated %}
       </li>
@@ -39,18 +39,18 @@
       <img width="120%" height="120%" src="{{user.profile.profile_pic.url }}" alt=""
         style="border-radius: 50%; width:30px; height:30px; ">
       <a href="#" class="dropdown-toggle btn btn-default mt-2" data-toggle="dropdown" role="button"
-        aria-expanded="false">Account
+        aria-expanded="false"style="color: teal;font-size: 20px;">Account
         <span class="caret"></span>
       </a>
       <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="{%url 'update_profile'%}">Update Profile</a>
+        <li >
+          <a href="{%url 'update_profile'%}" style="color: teal;">Update Profile</a>
         </li>
         <li>
-          <a href="{%url 'profile'%}">Profile</a>
+          <a href="{%url 'profile'%}"style="color: teal;">Profile</a>
         </li>
         <li>
-          <a href="/accounts/logout">Logout</a>
+          <a href="/accounts/logout"style="color: teal;">Logout</a>
         </li>
       </ul>
     </li>

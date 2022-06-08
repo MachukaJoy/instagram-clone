@@ -1,5 +1,5 @@
 {%load bootstrap4%}
-{% load static%}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,25 +23,30 @@
 
 
 </head>
+<style>
+    body{
+      background-color: #E97451;
+      color: rgb(5, 122, 111);
+    }
+  </style>
 
 <body>
 
-    <body>
-        {%include 'navbar.html' %}
+    {%include 'navbar.html' %}
 
 
-        {%block content%}
+    {%block content%}
 
-        {%endblock%}
-
-
-        {% block scripts %}
-        <script src="{% static 'js/scripts.js' %}"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        {% bootstrap_javascript %}
-        {% endblock %}
+    {%endblock%}
 
 
-    </body>
+    {% block scripts %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+
+
+</body>
 
 </html>
