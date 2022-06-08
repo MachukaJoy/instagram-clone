@@ -13,6 +13,8 @@ def home(request):
     posts = Post.all_posts()
     json_posts = []
     for post in posts:
+
+        # import pdb; pdb.set_trace()
         pic = Profile.objects.filter(user=post.user.id).first()
         if pic:
             pic = pic.profile_pic.url
@@ -23,8 +25,7 @@ def home(request):
             author=post.user.username,
             avatar=pic,
             name=post.title,
-            caption=post.caption
-
+            caption=post.caption,
         )
         json_posts.append(obj)
     return render(request, 'home.html', {"posts": json_posts})
@@ -32,6 +33,7 @@ def home(request):
 
 def profile(request):
     if request.method == 'POST':
+
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(
             request.POST, request.FILES, instance=request.user)
@@ -43,18 +45,16 @@ def profile(request):
             return redirect('home')
 
     else:
-
+        
         profile_form = ProfileUpdateForm(instance=request.user)
         user_form = UserUpdateForm(instance=request.user)
-
 
         context = {
             'user_form':user_form,
             'profile_form': profile_form
-
         }
 
-        return render(request, 'profile.html', context)
+    return render(request, 'profile.html', context)
 
 def update_profile(request):
     if request.method == 'POST':
@@ -71,15 +71,16 @@ def update_profile(request):
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user)
+
         context = {
             'user_form': user_form,
             'profile_form': profile_form
 
         }
 
-    return render(request,'update_profile.html', context)
+    return render(request, 'update_profile.html', context)
 
-@login_required(login_url='/accounts/login/')
+
 
 def register(request):
     if request.method == 'POST':
@@ -95,15 +96,20 @@ def register(request):
         form = SignUpForm()
     return render(request, 'registration/registration_form.html', {'form': form})
 
+
 def new_post(request):
     current_user = request.user
+   
     if request.method == 'POST':
         form = NewPostForm(request.POST, request.FILES)
         if form.is_valid():
             image = form.save(commit=False)
-            image.user = current_user  
-            image.save()  
+            image.user = current_user
+           
+            image.save()
+            
         return redirect('home')
+
     else:
         form = NewPostForm()
     return render(request, 'new_post.html', {"form": form})

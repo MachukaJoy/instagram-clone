@@ -16,6 +16,12 @@ django-bootstrap4 = "*"
 psycopg2 = "==2.8.6"
 django-tinymce = "*"
 django-crispy-forms = "*"
+gunicorn = "*"
+django-heroku = "*"
+importlib-metadata = "*"
+dj-database-url = "*"
+django-registration = "==3.1.1"
+zipp = "==3.3.1"
 
 [dev-packages]
 
